@@ -15,7 +15,7 @@ pred_mean = np.mean(df_pred['pred'])
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
-        return render_template('CryptoPunks_NFT_Analysis_v2_Short.html')
+        return render_template('CryptoPunks_NFT_Analysis_v3_Short.html')
     else:
         punk_id = request.form["punk_id"]
         target_punk = df_cryptopunks[df_cryptopunks['id']==int(punk_id)]
@@ -27,7 +27,7 @@ def index():
         else:
             pred = target_pred['pred'].values[0]
         pred = round(pred, 2)
-        return render_template("CryptoPunks_NFT_Analysis_v2_Short.html", punk_id=punk_id,
+        return render_template("CryptoPunks_NFT_Analysis_v3_Short.html", punk_id=punk_id,
                               punk_type=punk_type, punk_acc=punk_acc,
                               pred=pred)
     
